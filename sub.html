@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b0c0f">
+<meta name="theme-color" content="#121315">
 <meta name="robots" content="noindex,nofollow">
 <title>Super JinX</title>
 <script id="jx-data" type="application/json">{{ {
@@ -20,16 +20,16 @@
 <script>var __t="dark";try{__t=localStorage.getItem("jx-theme")||"dark"}catch(e){}document.documentElement.setAttribute("data-theme",__t==="light"?"light":"dark")</script>
 <style>
 @font-face{font-family:Vazirmatn;src:url(https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn[wght].woff2) format("woff2-variations");font-weight:100 900;font-display:swap}
-:root,html[data-theme=dark]{--bg:#0b0c0f;--card:#16171b;--card2:#1c1d22;--bd:rgba(255,255,255,.075);--fg:#fafafa;--mut:#8d919c;--pri:#3b82f6;--ok:#22c55e;--warn:#f59e0b;--bad:#ef4444;--hold:#3b82f6;--grid:rgba(255,255,255,.028);--glow:rgba(59,130,246,.14);--r:14px;color-scheme:dark}
+:root,html[data-theme=dark]{--bg:#121315;--card:#1a1b1e;--card2:#202125;--bd:rgba(255,255,255,.07);--fg:#fafafa;--mut:#8d919c;--pri:#3b82f6;--ok:#22c55e;--warn:#f59e0b;--bad:#ef4444;--hold:#3b82f6;--grid:rgba(255,255,255,.035);--glow:rgba(37,99,235,.16);--r:14px;color-scheme:dark}
 html[data-theme=light]{--bg:#f5f6f8;--card:#fff;--card2:#f3f4f7;--bd:rgba(0,0,0,.09);--fg:#0b0c0f;--mut:#6a6f7b;--ok:#16a34a;--warn:#d97706;--bad:#dc2626;--hold:#2563eb;--grid:rgba(0,0,0,.035);--glow:rgba(59,130,246,.1);color-scheme:light}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Vazirmatn,"Segoe UI",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;-webkit-text-size-adjust:100%}
-body{min-height:100dvh;overflow-x:hidden}
+body{min-height:100dvh;overflow-x:hidden;background:transparent}
 body.lock{overflow:hidden}
 button,a{font:inherit;color:inherit}a{text-decoration:none}svg{display:block}button{-webkit-user-select:none;user-select:none}
 .ltr{direction:ltr;unicode-bidi:isolate}
 .hide{display:none!important}
-.bg{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60% 38% at 80% 0,var(--glow),transparent 70%),linear-gradient(var(--grid) 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/32px 32px}
+.bg{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(55% 45% at 12% 38%,var(--glow),transparent 72%),radial-gradient(50% 40% at 88% 78%,var(--glow),transparent 72%),linear-gradient(var(--grid) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/40px 40px}
 :focus-visible{outline:2px solid var(--pri);outline-offset:2px}
 .wrap{max-width:980px;margin:0 auto;padding:max(22px,env(safe-area-inset-top)) 16px calc(34px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px}
 /* header */
@@ -530,7 +530,9 @@ function parse(l){
  var tags=[];if(N)tags.push(N);
  if(q.security&&q.security!=="none"&&q.security!=="tls")tags.push(String(q.security).toUpperCase());
  if(q.fp){var f=String(q.fp);tags.push(f==="ios"?"iOS":f.charAt(0).toUpperCase()+f.slice(1))}
- name=String(name||"").replace(/\s+/g," ").trim()||P;
+ name=String(name||"").replace(/\s+/g," ").trim();
+ try{name=name.replace(new RegExp("^[\\s\\u200d\\ufe0f]*(?:\\p{Extended_Pictographic}[\\s\\u200d\\ufe0f]*)+","u"),"")}catch(e){}
+ name=name||P;
  var plain=name.normalize?name.normalize("NFKC").toLowerCase():name.toLowerCase();
  var ic="p-node",ac="#60a5fa",pro=false;
  if(/pro/.test(plain)){ic="p-crown";ac="#f59e0b";pro=true}
@@ -566,7 +568,7 @@ function drawQr(text,cv,ecl){try{JinxQR.toCanvas(text,cv,{size:720,ecl:ecl,borde
 /* ---------- theme ---------- */
 function applyTheme(th){document.documentElement.setAttribute("data-theme",th);
  $("themeI").innerHTML='<use href="#i-'+(th==="light"?"sun":"moon")+'"/>';
- var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",th==="light"?"#f5f6f8":"#0b0c0f")}
+ var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",th==="light"?"#f5f6f8":"#121315")}
 function toggleTheme(){var n=document.documentElement.getAttribute("data-theme")==="light"?"dark":"light";try{localStorage.setItem("jx-theme",n)}catch(e){}applyTheme(n)}
 
 /* ---------- render (runs on language switch too) ---------- */
