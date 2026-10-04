@@ -1,5 +1,10 @@
 # Changelog
 
+## v6.1.4
+- New subscription page in the PasarGuard dashboard style: dark and light theme, status card with usage ring, expiry, ping and config count, config list with protocol badges, copy and QR buttons
+- Telegram channel and support (PV) cards, footer credit changed
+- The "getting ready" page shown while the panel restarts now matches the new design
+
 ## v6.1.3
 - Panel add-ons follow the panel language: Persian, English, Russian and Chinese (menu filter, owner key card, change password card, owner access dialog, error messages), and rebuild themselves when you switch language
 - Light and dark theme: all add-on cards use the panel's own theme colors (works with old HSL and new oklch color themes), close button and text sides follow the language direction
